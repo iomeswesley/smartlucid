@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flowline · OpEx Workspace</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%232650E0'/%3E%3Crect x='8' y='9' width='10' height='7' rx='2' fill='%23fff'/%3E%3Cpath d='M13 16v5.5a2 2 0 0 0 2 2h5' stroke='%23fff' stroke-width='2' fill='none'/%3E%3Crect x='20' y='20' width='12' height='7' rx='2' fill='%238FA8FF'/%3E%3Crect x='8' y='30' width='24' height='2.5' rx='1.25' fill='%23E3B505'/%3E%3C/svg%3E">
+  <script>window.__errs = []; window.addEventListener('error', function (e) { window.__errs.push((e.message || '') + ' @' + e.lineno + ':' + e.colno); });</script>
+  <script>
+    (function () { try { if (localStorage.getItem('fl-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {} })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div id="app" class="app"></div>
+
+  <!-- Ordem importa: cada arquivo usa globais (FL.*) declaradas nos anteriores — mesmo padrão do Teardown -->
+  <script src="js/core/util.js"></script>
+  <script src="js/core/i18n.js"></script>
+  <script src="js/ui/kit.js"></script>
+  <script src="js/core/schedule.js"></script>
+  <script src="js/core/seed.js"></script>
+  <script src="js/core/api.js"></script>
+  <script src="js/core/store.js"></script>
+  <script src="js/canvas/charts.js"></script>
+  <script src="js/canvas/shapes.js"></script>
+  <script src="js/canvas/editor.js"></script>
+  <script src="js/tools/sipoc.js"></script>
+  <script src="js/tools/fishbone.js"></script>
+  <script src="js/tools/fmea.js"></script>
+  <script src="js/tools/makers.js"></script>
+  <script src="js/plan/plan.js"></script>
+  <script src="js/plan/board.js"></script>
+  <script src="js/views/portfolio.js"></script>
+  <script src="js/views/project.js"></script>
+  <script src="js/views/toolkit.js"></script>
+  <script src="js/views/share.js"></script>
+  <script src="js/ui/shell.js"></script>
+</body>
+</html>

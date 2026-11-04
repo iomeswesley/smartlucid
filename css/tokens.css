@@ -1,0 +1,149 @@
+/* ==========================================================================
+   Flowline — tokens herdados do Teardown Platform (Precision Workspace)
+   Um único conjunto de tokens semânticos. O tema escuro troca só os valores;
+   nenhum componente deve ter override por classe (fim dos !important do css.html).
+   Uso: html[data-theme="dark"] liga o modo escuro (o botão da lua só alterna o atributo).
+   ========================================================================== */
+
+
+:root {
+  /* Tipografia */
+  --font-ui: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, Menlo, Consolas, monospace; /* todo número: custo, capacidade, PN, %, datas */
+  --fs-12: 12px;  /* mínimo absoluto: cabeçalhos de coluna, legendas */
+  --fs-13: 13px;  /* textos auxiliares, células densas */
+  --fs-14: 14px;  /* padrão de UI e tabelas */
+  --fs-16: 16px;  /* títulos de card */
+  --fs-20: 20px;  /* títulos de seção / página */
+  --fs-22: 22px;  /* título do registro (ex.: Midea RT533) */
+  --fs-28: 28px;
+  --fs-40: 40px;  /* número de destaque */
+
+  /* Espaçamento (escala de 4) */
+  --sp-4: 4px; --sp-8: 8px; --sp-12: 12px; --sp-16: 16px; --sp-20: 20px; --sp-24: 24px; --sp-32: 32px; --sp-48: 48px;
+
+  /* Forma */
+  --radius-control: 6px;   /* botões, inputs, selects, chips de delta */
+  --radius-card: 10px;     /* cards, painéis */
+  --radius-pill: 999px;    /* status */
+  --control-h: 36px;       /* 44px em toque */
+  --shadow-float: 0 8px 24px rgba(14, 23, 38, .12); /* só camadas flutuantes: menus, modais, ⌘K */
+
+  /* Movimento */
+  --motion-fast: 150ms;
+  --motion-base: 200ms;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+
+  /* ---------- Cores · tema claro (padrão) ---------- */
+  --c-canvas: #F5F7FA;       /* fundo da página */
+  --c-surface: #FFFFFF;      /* cards, header, tabelas */
+  --c-surface-2: #FAFBFC;    /* cabeçalho de tabela, linhas de contexto */
+  --c-surface-3: #F0F3F7;    /* linhas de subsistema / subtotal */
+  --c-line: #E3E7EE;
+  --c-line-soft: #EEF1F5;
+  --c-line-strong: #CBD2DC;  /* bordas de input */
+
+  --c-ink-900: #0E1726;      /* texto principal */
+  --c-ink-700: #344054;      /* texto secundário, labels */
+  --c-ink-500: #5B6577;      /* texto auxiliar (contraste ≥ 4.5:1 no branco) */
+
+  --c-action: #2650E0;       /* único acento: ação primária, aba ativa, foco, seleção */
+  --c-action-hover: #1E44C4;
+  --c-action-soft: #E8EEFC;  /* fundo de item selecionado */
+  --c-action-ink: #1E3FA8;   /* texto sobre action-soft */
+  --c-action-text: #2650E0;  /* links / texto de ação */
+  --c-selected-bg: #0E1726;  --c-selected-ink: #FFFFFF; /* chip/segmento selecionado */
+  --c-focus: #2650E0;
+
+  /* Sidebar (escura nos dois temas) */
+  --c-rail: #0E1726;
+  --c-rail-hover: #1C2A44;
+  --c-rail-ink: #C9D2E0;
+  --c-rail-ink-muted: #7F8BA0;
+
+  /* Estados de registro */
+  --c-done: #1F7A4D;      --c-done-soft: #E1F2E8;      --c-done-ink: #17603C;
+  --c-attention: #B07A00; --c-attention-soft: #FBF1D9; --c-attention-ink: #7A5400;
+  --c-error: #C0362C;     --c-error-soft: #FBE4E2;     --c-error-ink: #8E2620;
+  --c-draft: #6B7385;     --c-draft-soft: #EEF0F4;     --c-draft-ink: #474F60;
+
+  /* Delta de custo — Δ = baseline − competidor (mesma convenção do comparison.html)
+     ▲ positivo = baseline mais caro (laranja) · ▼ negativo = baseline mais barato (petróleo)
+     Nunca só cor: sempre seta + sinal + valor. */
+  --c-delta-up: #B5470B;   --c-delta-up-soft: #FCE6D8;   --c-delta-up-ink: #8E3708;
+  --c-delta-down: #0F6E78; --c-delta-down-soft: #DDF0F1; --c-delta-down-ink: #0B5860;
+
+  /* Régua de cenários (mantida como no app atual: verde = mais barato à esquerda) */
+  --ruler-gradient: linear-gradient(90deg, #10B981, #F59E0B, #EF4444);
+
+  /* Séries de gráfico (subsistemas / produtos) */
+  --c-series-1: #2650E0;  /* Cooling */
+  --c-series-2: #8FA8FF;  /* SES */
+  --c-series-3: #CBD2DC;  /* Structures */
+  --c-product-baseline: #5B6577;
+  --c-product-2: #2650E0;
+  --c-product-3: #7A4CC2;
+
+  /* Canvas (Flowline) */
+  --c-board: #FBFCFD;
+  --c-grid-dot: #D5DBE4;
+  --c-sel: #2650E0;
+  --c-guide: #E0368C;
+}
+
+/* ---------- Tema escuro (valores usados nas telas 30–33 · screens/3x-dark-*.html) ---------- */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --c-canvas: #0B111C;
+  --c-surface: #121A28;
+  --c-surface-2: #162032;
+  --c-surface-3: #1B263A;
+  --c-line: #243149;
+  --c-line-soft: #1D283C;
+  --c-line-strong: #34425C;
+
+  --c-ink-900: #EEF2F8;
+  --c-ink-700: #C3CCDA;
+  --c-ink-500: #8E9AB0;
+
+  --c-action: #3D63E6;        /* fundo de botão primário, aba ativa, borda de foco */
+  --c-action-hover: #5B7FF0;
+  --c-action-text: #8FA8FF;   /* links e texto de ação sobre o fundo escuro */
+  --c-action-soft: #1C2A4D;
+  --c-action-ink: #AFC2FF;
+  --c-focus: #5B7FF0;
+
+  --c-rail: #070C15;
+  --c-rail-hover: #162032;
+
+  /* chip/segmento selecionado inverte: fundo claro, texto escuro */
+  --c-selected-bg: #EEF2F8;   --c-selected-ink: #0B111C;
+
+  --c-done: #2E9A63;      --c-done-soft: #12301F;      --c-done-ink: #7FD3A4;
+  --c-attention: #D9A21B; --c-attention-soft: #33280B; --c-attention-ink: #F0C66A;
+  --c-error: #F2958C;     --c-error-soft: #3A1714;     --c-error-ink: #F2958C;
+  --c-draft-soft: #1E2636; --c-draft-ink: #B4BDCC;
+
+  --c-delta-up-soft: #3A1F0E;   --c-delta-up-ink: #F5A673;
+  --c-delta-down: #2BA3AE; --c-delta-down-soft: #0D2F33; --c-delta-down-ink: #7FCFD6;
+
+  --c-series-1: #3D63E6;
+  --c-series-3: #4A5873;
+  --shadow-float: 0 8px 24px rgba(0, 0, 0, .45);
+  --c-board: #0E1522;
+  --c-grid-dot: #26324A;
+  --c-sel: #5B7FF0;
+}
+
+/* ---------- Base ---------- */
+html { font-size: 16px; } /* volta ao padrão: remove o hack de 17px + overrides de text-[Npx] */
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: var(--fs-14);
+  color: var(--c-ink-900);
+  background: var(--c-canvas);
+  -webkit-font-smoothing: antialiased;
+}
+.mono, .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 2px; }
